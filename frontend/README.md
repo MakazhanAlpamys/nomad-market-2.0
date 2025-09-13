@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Nomad Market - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Solana](src/img/solana.png)
 
-## Available Scripts
+## О проекте
 
-In the project directory, you can run:
+Frontend часть децентрализованного маркетплейса Nomad Market, построенного на блокчейне Solana. Приложение разработано с использованием современных технологий и дизайн-системы, вдохновленной экосистемой Solana.
 
-### `npm start`
+## Технический стек
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 19**: Современная библиотека для построения пользовательских интерфейсов
+- **React Router 7**: Маршрутизация и навигация по приложению
+- **Axios**: Клиент для работы с HTTP-запросами к API
+- **TailwindCSS**: Утилитарный CSS-фреймворк для стилизации
+- **CoinGecko API**: Интеграция для получения актуальных курсов Solana
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Структура проекта
 
-### `npm test`
+```
+frontend/
+├── public/                # Статические ресурсы
+├── src/
+│   ├── components/        # Многоразовые компоненты
+│   │   ├── ListingCard.js # Карточка товара
+│   │   └── WalletPopup.js # Модальное окно кошелька
+│   ├── img/               # Изображения
+│   ├── pages/             # Компоненты страниц
+│   │   ├── admin/         # Страницы административной панели
+│   │   ├── About.js       # Страница "О нас"
+│   │   ├── Auth.js        # Вход/регистрация
+│   │   ├── CreateListing.js # Создание объявления
+│   │   ├── Home.js        # Главная страница
+│   │   ├── MyListings.js  # Мои объявления
+│   │   └── Profile.js     # Профиль пользователя
+│   ├── api.js             # Настройка Axios для работы с API
+│   ├── App.js             # Корневой компонент с маршрутизацией
+│   ├── index.css          # Глобальные стили и TailwindCSS
+│   └── index.js           # Точка входа
+└── package.json           # Зависимости и скрипты
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Основные компоненты
 
-### `npm run build`
+### Страницы
+- **Home.js**: Главная страница со списком всех объявлений и поиском
+- **Auth.js**: Страница входа и регистрации пользователей
+- **CreateListing.js**: Форма создания нового объявления
+- **MyListings.js**: Управление своими объявлениями
+- **Profile.js**: Управление профилем пользователя
+- **About.js**: Информация о платформе с отображением курса Solana
+- **Admin/*.js**: Административная панель (только для администраторов)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Компоненты
+- **ListingCard.js**: Карточка объявления с информацией и кнопкой покупки
+- **WalletPopup.js**: Модальное окно Solana-кошелька с балансом и курсами
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Особенности дизайна
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+В проекте реализован современный дизайн в стиле экосистемы Solana:
 
-### `npm run eject`
+- **Glassmorphism**: Полупрозрачные элементы с размытием фона
+- **Градиенты**: Фирменные градиенты Solana (пурпурный → голубой)
+- **Анимации**: Плавные переходы и интерактивные эффекты
+- **Адаптивность**: Полная поддержка мобильных устройств
+- **Темная тема**: Основной темный интерфейс с яркими акцентами
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Интеграция с CoinGecko API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Страница "О нас" и компонент кошелька интегрированы с API CoinGecko для получения актуальных курсов Solana:
+- SOL/USD: Отображение стоимости Solana в долларах США
+- SOL/KZT: Отображение стоимости Solana в казахстанских тенге
+- Автоматическое обновление каждые 2 минуты
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Запуск проекта
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Требования
+- Node.js 18+ и npm
 
-## Learn More
+### Установка зависимостей
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Настройка переменных окружения
+Создайте файл `.env` в корневой папке с содержимым:
+```
+REACT_APP_API_URL=http://localhost:4000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Запуск для разработки
+```bash
+npm start
+```
+Приложение будет доступно по адресу http://localhost:3000
 
-### Code Splitting
+### Сборка для продакшена
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Роли и доступ
 
-### Analyzing the Bundle Size
+- **Гость**: Просмотр главной страницы, страницы "О нас", авторизация
+- **Пользователь**: Создание объявлений, просмотр личного кабинета, покупка товаров
+- **Администратор**: Доступ ко всем функциям + административная панель
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Планы по развитию
 
-### Making a Progressive Web App
+- Интеграция с реальными кошельками Phantom и Solflare
+- Добавление возможности создания коллекций NFT
+- Система отзывов и рейтингов продавцов
+- Расширенные фильтры и категории для объявлений
+- Тёмная/светлая тема
+- Поддержка дополнительных языков
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2025 Nomad Market Frontend

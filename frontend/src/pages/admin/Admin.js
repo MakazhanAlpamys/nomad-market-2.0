@@ -7,14 +7,29 @@ export default function Admin() {
   const navigate = useNavigate();
   if (!user.is_admin) return <Navigate to="/" replace />;
   return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <div className="text-2xl font-bold">Админ-панель</div>
-        <div className="flex gap-2">
-          <Link className="px-3 py-1.5 bg-gray-100 rounded" to="/admin/listings">Объявления</Link>
-          <Link className="px-3 py-1.5 bg-gray-100 rounded" to="/admin/users">Пользователи</Link>
+    <div className="space-y-8">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold sol-text-gradient mb-2">Admin Panel</h1>
+        <p className="text-gray-400">Manage marketplace listings and users</p>
+      </div>
+      
+      <div className="flex justify-center">
+        <div className="flex gap-2 p-1 glass-effect rounded-xl">
+          <Link 
+            className="px-6 py-3 rounded-lg font-medium transition-all duration-200 text-white hover:bg-white/20" 
+            to="/admin/listings"
+          >
+            Listings
+          </Link>
+          <Link 
+            className="px-6 py-3 rounded-lg font-medium transition-all duration-200 text-white hover:bg-white/20" 
+            to="/admin/users"
+          >
+            Users
+          </Link>
         </div>
       </div>
+      
       <Routes>
         <Route path="/" element={<Navigate to="/admin/listings" replace />} />
         <Route path="/listings" element={<Listings />} />
