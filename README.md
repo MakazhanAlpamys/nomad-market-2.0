@@ -1,52 +1,52 @@
-# Nomad-Market — Децентрализованный маркетплейс на блокчейне Solana
+# Nomad-Market — Decentralized Marketplace on Solana Blockchain
 
 ![Solana](frontend/src/img/solana.png) 
 
-## О проекте
+## About the Project
 
-Nomad-Market — децентрализованная торговая площадка на блокчейне Solana, которая позволяет пользователям создавать, продавать и покупать цифровые активы. Платформа использует имитацию блокчейн-технологии с виртуальными кошельками, токенизацией объявлений и эскроу-системой для безопасных транзакций.
+Nomad-Market is a decentralized trading platform on the Solana blockchain that allows users to create, sell, and buy digital assets. The platform uses simulated blockchain technology with virtual wallets, listing tokenization, and an escrow system for secure transactions.
 
-### Основные возможности
-- 🛒 Создание и просмотр листингов цифровых активов
-- 💰 Виртуальные Solana-кошельки для каждого пользователя
-- 🔐 Токенизация объявлений через систему NFT
-- ⚡ Безопасные транзакции через эскроу смарт-контракт
-- 📊 Отображение актуального курса Solana в USD и KZT (интеграция с CoinGecko API)
-- 👨‍💼 Административная панель для модерации контента и управления пользователями
+### Key Features
+- 🛒 Create and browse digital asset listings
+- 💰 Virtual Solana wallets for each user
+- 🔐 Listing tokenization through NFT system
+- ⚡ Secure transactions via escrow smart contract
+- 📊 Real-time Solana price display in USD and KZT (CoinGecko API integration)
+- 👨‍💼 Admin panel for content moderation and user management
 
-## Технический стек
+## Tech Stack
 
 ### Frontend
 - **React 19** + React Router 7
-- **Tailwind CSS** для стилизации с кастомным дизайном в стиле Solana
-- **Axios** для API запросов
-- **CoinGecko API** для получения актуальных курсов криптовалют
+- **Tailwind CSS** for styling with custom Solana-inspired design
+- **Axios** for API requests
+- **CoinGecko API** for real-time cryptocurrency rates
 
 ### Backend
-- **Node.js** с Express.js для API
-- **PostgreSQL** для хранения данных пользователей, листингов и транзакций
-- **JWT** для аутентификации
-- **Bcrypt** для хеширования паролей
-- **Multer** для обработки файлов изображений
+- **Node.js** with Express.js for API
+- **PostgreSQL** for storing users, listings, and transactions data
+- **JWT** for authentication
+- **Bcrypt** for password hashing
+- **Multer** for image file handling
 
-## Структура базы данных
-- **users**: Пользователи системы (учетные данные, кошельки, балансы)
-- **listings**: Объявления и товары на маркетплейсе
-- **tokens**: Токены NFT, представляющие цифровые активы
-- **transactions**: История всех транзакций в системе
-- **notifications**: Система уведомлений для пользователей
+## Database Structure
+- **users**: System users (credentials, wallets, balances)
+- **listings**: Marketplace listings and items
+- **tokens**: NFT tokens representing digital assets
+- **transactions**: History of all system transactions
+- **notifications**: User notification system
 
-## Запуск проекта (локально)
+## Running the Project (Locally)
 
-### Требования
+### Requirements
 - Node.js 18+
 - PostgreSQL 14+
 
-### Настройка базы данных
-1. Создайте БД `nomad_market` (или укажите свое имя в `.env`)
+### Database Setup
+1. Create `nomad_market` database (or specify your own name in `.env`)
 
-### Настройка Backend
-1. Создайте файл `backend/.env` по примеру:
+### Backend Setup
+1. Create `backend/.env` file following this example:
 ```
 PORT=4000
 CLIENT_ORIGIN=http://localhost:3000
@@ -58,108 +58,108 @@ DB_NAME=nomad_market
 JWT_SECRET=change_me_secret
 ```
 
-2. Установка и запуск:
+2. Installation and launch:
 ```bash
 cd backend
 npm install
 npm start
 ```
 
-При первом запуске сервер автоматически создаст все необходимые таблицы.
-API будет доступен по адресу: http://localhost:4000
+On first launch, the server will automatically create all necessary tables.
+API will be available at: http://localhost:4000
 
-### Настройка Frontend
-1. Создайте файл `frontend/.env` по примеру:
+### Frontend Setup
+1. Create `frontend/.env` file following this example:
 ```
 REACT_APP_API_URL=http://localhost:4000
 ```
 
-2. Установка и запуск:
+2. Installation and launch:
 ```bash
 cd frontend
 npm install
 npm start
 ```
 
-Приложение будет доступно по адресу: http://localhost:3000
+Application will be available at: http://localhost:3000
 
-## Страницы и функционал
+## Pages and Features
 
-### Для всех пользователей
-- **Главная страница** (`/`): Листинги товаров с возможностью поиска и фильтрации
-- **Страница авторизации** (`/auth`): Вход и регистрация пользователей
-- **Страница "О нас"** (`/about`): Информация о платформе с отображением актуального курса Solana
+### For All Users
+- **Home Page** (`/`): Product listings with search and filter capabilities
+- **Authentication Page** (`/auth`): User login and registration
+- **About Page** (`/about`): Platform information with real-time Solana price display
 
-### Для авторизованных пользователей
-- **Создание листинга** (`/create`): Форма добавления нового товара
-- **Мои листинги** (`/my`): Управление собственными объявлениями
-- **Профиль** (`/profile`): Управление личным профилем
-- **Кошелек**: Просмотр баланса, транзакций и уведомлений с отображением курса Solana в USD и KZT
+### For Authenticated Users
+- **Create Listing** (`/create`): Form for adding new items
+- **My Listings** (`/my`): Manage your own listings
+- **Profile** (`/profile`): Personal profile management
+- **Wallet**: View balance, transactions, and notifications with Solana price in USD and KZT
 
-### Для администраторов
-- **Админ-панель** (`/admin`): Управление системой
-  - Модерация объявлений
-  - Управление пользователями
-  - Мониторинг транзакций
+### For Administrators
+- **Admin Panel** (`/admin`): System management
+  - Listing moderation
+  - User management
+  - Transaction monitoring
 
-## Учетные записи
-- **Администратор**: Создается автоматически при первом запуске
+## User Accounts
+- **Administrator**: Created automatically on first launch
   - Email: `admin@nomad-market.local`
-  - Пароль: `Admin123!`
-- **Обычный пользователь**: Регистрируется через страницу `/auth`
+  - Password: `Admin123!`
+- **Regular User**: Register through `/auth` page
 
-## Ключевые функции и эндпоинты
+## Key Functions and Endpoints
 
-### Аутентификация
-- `POST /auth/register` - регистрация `{ email, password, nickname }`
-- `POST /auth/login` - вход `{ email, password }`
+### Authentication
+- `POST /auth/register` - registration `{ email, password, nickname }`
+- `POST /auth/login` - login `{ email, password }`
 
-### Листинги
-- `GET /listings` - получение списка объявлений (фильтры: `q`, `minPrice`, `maxPrice`, `owner`)
-- `POST /listings` - создание объявления (multipart: `image`, `title`, `description`, `price`)
-- `PUT /listings/:id` - обновление своего объявления
-- `DELETE /listings/:id` - удаление своего объявления
-- `GET /listings/:id/image` - получение изображения объявления
+### Listings
+- `GET /listings` - get listings list (filters: `q`, `minPrice`, `maxPrice`, `owner`)
+- `POST /listings` - create listing (multipart: `image`, `title`, `description`, `price`)
+- `PUT /listings/:id` - update your listing
+- `DELETE /listings/:id` - delete your listing
+- `GET /listings/:id/image` - get listing image
 
-### Транзакции и токены
-- `POST /listings/:id/mint` - создание токена (NFT) для объявления
-- `POST /purchase` - покупка объявления `{ listingId }`
-- `GET /wallet/:id` - информация о кошельке, токенах, транзакциях и уведомлениях
+### Transactions and Tokens
+- `POST /listings/:id/mint` - create token (NFT) for listing
+- `POST /purchase` - purchase listing `{ listingId }`
+- `GET /wallet/:id` - wallet info, tokens, transactions, and notifications
 
-### Административные функции
-- `GET /admin/listings` - все объявления в системе
-- `DELETE /admin/listings/:id?reason=...` - удаление объявления с причиной
-- `GET /admin/users` - все пользователи
-- `GET /admin/users/:id/transactions` - транзакции конкретного пользователя
-- `DELETE /admin/users/:id` - удаление пользователя
+### Administrative Functions
+- `GET /admin/listings` - all listings in the system
+- `DELETE /admin/listings/:id?reason=...` - delete listing with reason
+- `GET /admin/users` - all users
+- `GET /admin/users/:id/transactions` - specific user's transactions
+- `DELETE /admin/users/:id` - delete user
 
-## Принцип работы системы токенизации и транзакций
+## Tokenization and Transaction System
 
-### Схема работы NFT-маркетплейса:
-1. **Продавец загружает актив** (изображение или другой цифровой контент)
-2. **Токенизация**: Система создает NFT, представляющий этот актив
-3. **Листинг на Nomad-Market**: Товар выставляется на площадке с указанной ценой
-4. **Покупка**: Пользователь выбирает NFT и отправляет SOL через кошелек
-5. **Эскроу-смарт-контракт**: Хранит деньги до момента готовности токена к передаче
-6. **Распределение**: Контракт автоматически переводит токен покупателю и деньги продавцу
+### NFT Marketplace Workflow:
+1. **Seller uploads asset** (image or other digital content)
+2. **Tokenization**: System creates NFT representing this asset
+3. **Listing on Nomad-Market**: Item is listed on platform with specified price
+4. **Purchase**: User selects NFT and sends SOL through wallet
+5. **Escrow Smart Contract**: Holds funds until token is ready for transfer
+6. **Distribution**: Contract automatically transfers token to buyer and funds to seller
 
-Особенность: Сделка атомарная — либо обе стороны получают обещанное, либо транзакция отменяется полностью.
+Key Feature: Transaction is atomic — either both parties receive what was promised, or the transaction is completely cancelled.
 
-## Дальнейшее развитие
+## Future Development
 
-Текущая версия использует имитацию блокчейна Solana. Для полной интеграции с настоящим блокчейном необходимо:
+Current version uses Solana blockchain simulation. For full integration with actual blockchain, the following is needed:
 
-1. Интеграция с реальными кошельками Solana (Phantom, Solflare)
-2. Разработка и деплой смарт-контрактов на Solana (с использованием Anchor Framework)
-3. Интеграция с Solana RPC API для работы с блокчейном
-4. Реализация реальной токенизации и NFT на блокчейне
+1. Integration with real Solana wallets (Phantom, Solflare)
+2. Development and deployment of smart contracts on Solana (using Anchor Framework)
+3. Integration with Solana RPC API for blockchain operations
+4. Implementation of real tokenization and NFTs on blockchain
 
-## Дополнительные рекомендации по безопасности
-- Использовать HTTPS для всех соединений
-- Обновить CORS-настройки для продакшн-среды
-- Хранить изображения во внешнем объектном хранилище (S3, Firebase Storage)
-- Использовать системы миграции базы данных для версионирования схемы
+## Additional Security Recommendations
+- Use HTTPS for all connections
+- Update CORS settings for production environment
+- Store images in external object storage (S3, Firebase Storage)
+- Use database migration systems for schema versioning
 
 ---
 
-© 2025 Nomad Market. Проект создан для демонстрации возможностей блокчейн-технологий.
+© 2025 Nomad Market. Project created to demonstrate blockchain technology capabilities.
